@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Us</title>
+</head>
+
+   <!-- Navigation bar-->
+   <nav class="navbar navbar-expand-lg static-top ">
+    <div class="container">
+      <img src="houselogo.png" class="logo-image">
+        <a class="navbar-brand" href="index.html">CCP Alarms</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Hub <span class="sr-only"></span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="aboutus.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="info.html">System Information</a>
+              </li>
+</nav><!-- end Nav bar -->
+
+
+    <!-- Container for page content-->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">About Us</h1>
+          <p class="lead">Welcome to Our CCP Alarms About Us Page.</p>
+        </div>
+    <!----Main Content-->  
+    </div>
+        <div class="container-fluid">
+            <div class="col-md-6 pt-5">
+                <div class="card border-dark h-100 p-3">  
+                <h4 class="font-weight-bold">About Us As The Creators</h4>
+                <li>CCP Alarms is a 2nd year project By Colin Smith, Conor O'Dea and Padraig Nolan Hence CCP. </li>
+                </div>
+            </div>
+            </div>
+            <div class="container-fluid">
+            <div class="col-md-6 pt-5">
+                <div class="card border-dark h-100 p-3 mb-5">  
+           
+                <h4 class="font-weight-bold">CCP Alarms - What the project is about?</h4>
+                <li>This project is a hub showing all alarm changing status aimed for a admin point of view from which, you as an admin can filter households via Postcode. Each house has its unique statuses based on each sensor status in which if a sensor is on the row is green the sensor status is on if  it's not on the row is red.</li>
+            </div>
+        
+              
+        </div> <!-- end right col-->
+    </div> <!-- end content row -->
+</div> <!-- end container-->
+
+        
+    <!---Footer-->
+    <footer>
+      <div class="clock" id='time'></div>       
+      <div id='D_M_Y'></div>    
+      <!--Show Time Script-->
+         <script>
+        setInterval(function() {
+            let date = new Date();
+            let hrs = date.getHours();
+            let min = date.getMinutes();
+            let sec = date.getSeconds();
+            
+            min = SecondsLoop(min);
+            sec = SecondsLoop(sec);
+    
+            // Show time and date.
+            document.getElementById('time').innerHTML = hrs + ':' + min + ':' + sec;
+            document.getElementById('D_M_Y').innerHTML = date.toDateString();
+           
+        });
+        
+        let SecondsLoop = (time_type) => {
+            if (time_type < 10) {
+                time_type = '0' + time_type;
+            }
+            return time_type;
+        }
+    </script>
+        </footer>
+          <!---Footer-->
+
+
+    <!-- Load CSS + JavaScript at end of page body -->
+    <!-- Load site CSS -->
+  
+
+    <!-- Load BootStrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Load BootStrap 5 JS Bundle-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+        crossorigin="anonymous">
+    </script>
+
+    <!-- Bootstrap icons https://icons.getbootstrap.com/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" 
+        integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="css/style.css">
+
+</body>
+</html>

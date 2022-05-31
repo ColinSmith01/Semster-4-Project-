@@ -1,0 +1,193 @@
+/* Fonts from Google Fonts - more at https://fonts.google.com */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+
+html {
+  font-size: 100%;
+  font-family: "Open Sans", sans-serif;
+  background: url(background.jpg);
+  padding: 0% 3%;
+}
+
+
+
+#AddHouseButton {
+  text-decoration: none;
+  background-color:#0A344C;
+  border: white;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+
+.dropdown-item {
+  color: white;
+}
+body {
+  padding: 0 0 1rem 0;
+  color: black;
+  font-size: 1.25rem;
+  position: relative;
+  box-shadow: 0 .3em 1rem #000;
+  background: url(body.jpg);
+  margin: auto;
+
+}
+
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+
+
+/*NAV*/
+.navbar,.navbar-brand{
+  text-decoration:none;
+  background-color: #0a344c;
+  color: #def2f1;
+
+}
+
+.navbar-nav li a:hover,.navbar-brand:hover{
+  color: #ff5a5f;
+}
+
+.nav-link{
+  background-color: #0a344c;
+  color: #def2f1;
+  
+
+}
+
+.logo-image{
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: -6px;
+
+}
+
+
+/*END OF NAV*/
+
+
+
+
+
+/*Jumbotron Top of Aboutus page*/
+.jumbotron
+{
+  background: url(jumbotron.jpg);
+  color: white;
+  padding-bottom: 1em;
+  display: flex;
+  margin:auto;
+  text-align: center;
+}
+
+/*body for aboutus*/
+.body,.container-fluid,  .container-xl, .container-xxl
+{
+  background: url(body.jpg);
+  padding-bottom: 1em;
+  color: #000;
+}
+
+.card{
+  border-radius: 15px;
+
+  background-color: rgba(239, 239, 239, 0.6);
+}
+
+/*toggle button*/
+#timeSort{
+  text-decoration: underline;
+  font-size: 100%;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  color:#def2f1;
+  position: relative; left:-1em; bottom:-0.5em;
+  
+}
+
+
+/*background colour for column headers*/
+thead
+{
+  background-color: #0b3954;
+
+
+}
+
+.body,.container-fluidd,  .container-xl, .container-xxl
+{
+  
+  padding-bottom: 1em;
+  color: #000;
+}
+
+
+
+/*For the rows text*/
+tr{
+  color: #def2f1 ;
+}
+
+
+/*Row table specifics*/
+#sensors
+{
+  background: #087e8b;
+  color:#def2f1;
+  font-size: 0.8rem;
+  box-shadow: 0 .3em 1rem #def2f1;
+  margin: auto;
+}
+
+/*Colour for hover for rows*/
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #fe2a19;
+  border: 1px solid #0a5c70;
+  color: white;
+}
+/*footer*/
+footer
+
+{
+  padding-top: 1em;
+  padding-bottom: 0.5em;  
+  background: #0A344C;
+  color: #def2f1;
+  font-size: 0.8rem;
+  position: relative;
+  text-align: center;
+  margin: auto;
+  font-weight:bolder;
+  margin-bottom: -1.3em;
+}
+
+/*Centering the cards on info and about us page*/
+.card {
+  display: flex;
+  left: 50%;
+}
+
+/*Customzing the hyperlinm on the info page*/
+a {
+  color: #000;
+  text-decoration:none;
+}

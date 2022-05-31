@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CCP Alarms Hub - Admin</title>
+</head>
+
+
+    <!-- Navigation bar-->
+    <nav class="navbar navbar-expand-lg  static-top ">
+        <div class="container">
+            <img src="houselogo.png" class="logo-image">
+            <a class="navbar-brand" href="index.html">CCP Alarms</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Hub </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="aboutus.html">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="info.html">System Information</a>
+                  </li>
+                <!---Search Bar-->
+        
+                <div class="navbar-nav mr-4 mt-4 mt-lg-1"> 
+                    <input id="inputSearch" type="search" class="form-control rounded" 
+                        placeholder="Search Sensor Number" aria-label="Search" aria-describedby="search-addon" />
+                    <button class="btn btn-light" id="btnSearch">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+    </nav><!-- end Nav bar -->
+    <!-- Container for page content-->
+    <body>
+    <div class="container">
+        <div class="row">
+            <h2 class="mt-5">Postcodes</h2>
+        </div>
+        
+        <!-- content row-->
+        <div class="row">
+            <!-- left column-->
+            <div class="col-sm-2">
+                <div id="houseList" class="list-group">
+
+                </div>
+                <!-- Add computer toggle button -->
+                <button id="AddHouseButton" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#HouseFormDialog">Add House
+                </button>
+               
+
+            </div> <!-- end left col-->
+            <!-- Right column -->
+            <div class="col-sm-9">
+                <div id="messages">
+                    <!-- Table of events -->
+                    <table id="sensors" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Sensor Number ID</th>
+                                <th>Sensor Number</th>
+                                <th>Room Information</th>
+                                <th>Sensor Status</th>
+                                <th>Message</th>
+                                <th><button id="timeSort" class="btn">Time</button></th>
+                                <th>Clear Event</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sensorRows">
+                            <!-- Rows to be inserted here -->
+                        </tbody>
+                    </table>
+                    <div class="mb-1 bg-success text-white">Green means alarm sensor status is set as on in 'Sensor Status'.</div>
+                    <div class="mb-1 bg-danger text-white">Red means alarm sensor status is set as off in 'Sensor Status' </div>   
+                </div>
+              
+            </div> <!-- end right col-->
+        </div> <!-- end content row -->
+    </div> <!-- end container-->
+
+    <div class="modal fade" id="HouseFormDialog">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+  
+            <!-- Header -->
+            <div class="modal-header">
+              <h4 class="modal-title" id="houseFormTitle">Add House</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+  
+            <!-- Body - contains form inputs-->
+            <!-- The id of each input matches a Computer property -->
+            <div class="modal-body">
+              <!-- Computer Form -->
+              <form id="houseForm" name="houseForm">
+                <div class="form-group">
+                  <label for="postcode">Postcode:</label>
+                  <input id="postcode" type="text" class="form-control" name="postcode">
+                </div>
+                <!-- (computer) id is a hidden field value is not required but set = 0-->
+                <input id="id" type="hidden" value="0">
+              </form><!-- End form-->
+            </div> <!-- End Body -->
+
+            <div class="modal-footer">
+                <!-- Buttons - note onclick and data-dismiss attribtes-->
+                <button id="formSubmit" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                </button>
+              </div> <!-- End Footer -->
+    
+            </div>
+          </div>
+        </div>
+
+        <footer>
+            <div class="clock" id='time'></div>       
+            <div id='D_M_Y'></div>    
+            <!--Show Time Script-->
+               <script>
+              setInterval(function() {
+                  let date = new Date();
+                  let hrs = date.getHours();
+                  let min = date.getMinutes();
+                  let sec = date.getSeconds();
+                  
+                  min = SecondsLoop(min);
+                  sec = SecondsLoop(sec);
+          
+                  // Show time and date.
+                  document.getElementById('time').innerHTML = hrs + ':' + min + ':' + sec;
+                  document.getElementById('D_M_Y').innerHTML = date.toDateString();
+                 
+              });
+              
+              let SecondsLoop = (time_type) => {
+                  if (time_type < 10) {
+                      time_type = '0' + time_type;
+                  }
+                  return time_type;
+              }
+          </script>
+              </footer>
+
+
+    <!-- Load CSS + JavaScript at end of page body -->
+    <!-- Load site CSS -->
+  
+
+    <!-- Load BootStrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Load BootStrap 5 JS Bundle-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+        crossorigin="anonymous">
+    </script>
+
+    <!-- Bootstrap icons https://icons.getbootstrap.com/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" 
+        integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="css/style.css">
+
+    <!-- Supabase JavaScript dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+    <!-- The view script for this page - loaded as a module -->
+    <script src="./src/index.js" type="module"></script>
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+
+</body>
+</html>
